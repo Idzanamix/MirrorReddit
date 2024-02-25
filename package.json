@@ -3,9 +3,6 @@
     "version": "1.0.0",
     "description": "",
     "main": "webpack.config.js",
-    "engines": {
-        "node": "14.x"
-    },
     "scripts": {
         "build:dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
         "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
@@ -26,8 +23,9 @@
         "helmet": "^7.1.0",
         "html-to-text": "^9.0.5",
         "nodemon": "^3.0.1",
-        "react": "^17.0.1",
-        "react-dom": "^17.0.1",
+        "pm2": "^5.3.1",
+        "react": "^17.0.0",
+        "react-dom": "^17.0.0",
         "react-player": "^2.13.0",
         "react-redux": "^8.0.1",
         "react-router-dom": "^6.22.0",
@@ -39,9 +37,8 @@
         "webpack-node-externals": "^3.0.0"
     },
     "devDependencies": {
-        "@hot-loader/react-dom": "^17.0.1",
+        "@hot-loader/react-dom": "^17.0.0",
         "@types/enzyme": "^3.10.16",
-        "@types/jest": "^29.5.5",
         "@types/react": "^18.2.48",
         "@types/react-dom": "^18.2.18",
         "@types/react-router-dom": "^5.3.3",

@@ -5,7 +5,7 @@ import { indexTemplate } from './indexTemplate';
 import compression from 'compression'
 import helmet from 'helmet';
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 80;
 const IS_DEV = process.env.NODE_ENV !== 'production';
 const app = express();
 
@@ -25,5 +25,5 @@ app.get('*', (request, response) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server started on http://localhost:${PORT}`);
+    console.log(`Server started on reddinamix.fun:${PORT}`);
 });
