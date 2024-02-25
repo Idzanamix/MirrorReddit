@@ -1,0 +1,236 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 17px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    transition: transform .2s ease-in-out;
+    position: relative;
+}
+
+.body {
+    display: flex;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    animation: commentOpen .15s forwards;
+    width: 100%;
+}
+
+@keyframes commentOpen {
+    0% {
+        opacity: .3;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.buttonOpen {
+    position: absolute;
+    left: -64.5px;
+    top: 4px;
+}
+
+.buttonOpen svg {
+    fill: var(--sky);
+}
+
+.buttonLine {
+    min-height: 100%;
+    min-width: 10px;
+    margin-top: 4px;
+    margin-left: -31.5px;
+    margin-right: 21.5px;
+    outline: none;
+    border-right: 2px solid var(--commentBorder);
+    transition: border-color .05s ease-in-out, filter .05s ease-in-out;
+}
+
+.buttonLine:focus-visible {
+    border-color: var(--commentBorderHover);
+    filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.3));
+}
+
+.userLinkAvatar {
+    padding: 0;
+    margin-left: -41px;
+    font-size: 12px;
+}
+
+.userLinkAvatar a {
+    font-size: 12px;
+}
+
+.userLinkAvatar img {
+    width: 36px;
+    height: 36px;
+}
+
+.styleAvatar.styleAvatar {
+    width: 28px;
+    height: 28px;
+    margin: 7px 9px 0 4px;
+}
+
+.userLinkAvatar::before {
+    content: '';
+    background-color: var(--gray66);
+    border-radius: 50%;
+    position: absolute;
+    left: 4px;
+    top: 0;
+    width: 28px;
+    height: 28px;
+    z-index: 1;
+}
+
+.createdAd {
+    font-size: 12px;
+}
+
+.text * {
+    color: var(--bodyText);
+    font-style: normal;
+    font-weight: 400;
+}
+
+.text p {
+    margin: 0;
+    margin-bottom: 7px;
+}
+
+.text p a {
+    text-decoration: underline;
+    color: var(--orangeFF);
+}
+
+.controlPanel {
+    display: flex;
+    align-items: center;
+    align-self: start;
+}
+
+.karmaCounter {
+    flex-direction: row;
+    justify-content: start;
+    margin-right: 4px;
+}
+
+.karmaCounter span {
+    padding: 0 5px;
+    font-size: 12px;
+    color: var(--bodyText);
+}
+
+.karmaCounter button svg {
+    fill: var(--grayC4);
+}
+
+.button {
+    display: flex;
+    gap: 5px;
+    color: var(--gray99);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 6px 6px;
+    border: .5px solid transparent;
+    border-radius: 2px;
+    outline: none;
+    transition: color .05s ease-in-out, background-color .05s ease-in-out, border-color .05s ease-in-out;
+}
+
+.button:focus-visible {
+    background-color: var(--darkLord);
+    border-color: var(--gray66);
+}
+
+.button:active {
+    color: var(--coral);
+}
+
+.button svg {
+    fill: var(--gray99);
+    transition: fill .05s ease-in-out;
+}
+
+.button:active svg {
+    fill: var(--coral);
+}
+
+.commentsBlock {
+    padding-left: 21.5px;
+}
+
+.formComment {
+    margin-top: 15px;
+    overflow: visible;
+    margin-bottom: 20px;
+}
+
+.formComment:before {
+    content: '';
+    width: 2px;
+    height: 100%;
+    background-color: var(--commentBorder);
+    position: absolute;
+    left: -23.5px;
+}
+
+@media (max-width: 1024px) {
+    .userLinkAvatar a {
+        font-size: 10px;
+    }
+
+    .createdAd {
+        font-size: 10px;
+    }
+
+    .karmaCounter span {
+        font-size: 10px;
+    }
+
+    .button {
+        font-size: 10px;
+    }
+}
+
+@media (hover: hover) {
+    .buttonLine:hover {
+        border-color: var(--commentBorderHover);
+        filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.3));
+    }
+
+    .button:hover {
+        color: var(--orangeFF);
+        background-color: var(--darkLord);
+        border-color: var(--gray66);
+    }
+
+    .button:hover svg {
+        color: var(--orangeFF);
+        background-color: var(--darkLord);
+        fill: var(--orangeFF);
+    }
+}
+
+@media (hover: none) {
+    .button:active {
+        color: var(--coral);
+        background-color: var(--darkLord);
+        border-color: var(--gray66);
+    }
+
+    .button:active svg {
+        fill: var(--coral);
+    }
+}

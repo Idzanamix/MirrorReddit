@@ -1,0 +1,21 @@
+.header {
+    border-bottom: 1px solid var(--commentBorder);
+    background-color: var(--background);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row nowrap;
+    align-items: center;
+    padding: 5px 15px;
+}
+
+@media all and (min-width: 1024px) {
+    .container {
+        padding: 7px 35px;
+    }
+}

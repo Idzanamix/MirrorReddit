@@ -1,0 +1,11 @@
+.loader {
+    position: absolute;
+    top: calc(50% - 42px);
+    left: calc(50% - 32px);
+    z-index: 10000;
+}
+
+.observer {
+    position: absolute;
+    top: 0;
+}

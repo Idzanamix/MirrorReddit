@@ -1,0 +1,21 @@
+.title {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0;
+    margin-bottom: 7px;
+    overflow: visible;
+    padding: 0;
+    cursor: pointer;
+}
+
+.title .link {
+    color: var(--white);
+}
+
+@media (max-width: 1024px) {
+    .title {
+        font-size: 14px;
+    }
+}

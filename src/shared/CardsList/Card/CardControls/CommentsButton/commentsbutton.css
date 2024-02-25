@@ -1,0 +1,65 @@
+.commentsNumber {
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 700;
+    color: var(--grayC4);
+    transition: color .05s ease-in-out;
+}
+
+.commentsButton svg {
+    fill: var(--grayC4);
+    transition: fill .05s ease-out;
+}
+
+.commentsButton {
+    display: flex;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    align-items: center;
+    align-self: start;
+    padding: 5px;
+    margin-left: -5px;
+    gap: 3px;
+    transition: background-color .05s ease-in-out, border-color .05s ease-in-out;
+    border: .5px solid transparent;
+}
+
+.commentsButton:hover {
+    background-color: var(--background);
+    border-color: var(--gray66);
+}
+
+.commentsButton:hover .commentsDescr {
+    color: var(--orangeFF);
+}
+
+.commentsButton:hover .commentsNumber {
+    color: var(--orangeFF);
+}
+
+.commentsButton:hover svg {
+    fill: var(--orangeFF);
+}
+
+.commentsDescr {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    color: var(--grayC4);
+    display: flex;
+    gap: 3px;
+    cursor: pointer;
+    transition: color .05s ease-in-out;
+}
+
+@media all and (min-width: 1024px) {
+    .commentsButton svg {
+        fill: var(--grayC4);
+    }
+
+    .commentsNumber {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,50 @@
+.error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 20px;
+}
+
+.image {
+    border-radius: 15px;
+    width: 100%;
+}
+
+.container {
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 60px;
+    position: relative;
+    border: 1px solid var(--grayD9);
+    filter: drop-shadow(0px 0px 50px rgba(0, 81, 255, 0.5));
+    border-radius: 15px;
+}
+
+.wrapper {
+    position: absolute;
+    top: 40%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.descr {
+    text-shadow: 2px 2px 2px var(--black);
+    color: var(--white);
+    margin-bottom: 10px;
+    align-self: flex-end;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+.message {
+    text-shadow: 1px 1px 1px var(--black);
+    background-color: var(--white);
+    color: var(--black);
+    text-align: center;
+}

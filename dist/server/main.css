@@ -1,0 +1,112 @@
+/*!***********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/main.global.css ***!
+  \***********************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap);
+/*!***************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/main.global.css (1) ***!
+  \***************************************************************************/
+:root {
+    --background: #1A1A1B;
+    --darkRgb: #141415;
+    --space: #000000;
+    --black: #333333;
+    --orange: #CC6633;
+    --orangeFF: #D93A00;
+    --coral: coral;
+    --sky: #4FBCFF;
+    --darkLine: #343536;
+    --redCC: #CC3361;
+    --green: #A4CC33;
+    --EC: #ECECEC;
+    --E5: #E5E5E5;
+    --buttonColor: #D7DADC;
+    --whiteLightness: 100%;
+    --white: hsl(0, 0%, var(--whiteLightness));
+    --grayF4: hsl(0, 0%, calc(var(--whiteLightness) - 4%));
+    --grayF3: hsl(0, 0%, calc(var(--whiteLightness) - 5%));
+    --grayD9: hsl(0, 0%, calc(var(--whiteLightness) - 15%));
+    --grayC4: hsl(0, 0%, calc(var(--whiteLightness) - 25%));
+    --gray66: hsl(0, 0%, calc(var(--whiteLightness) - 60%));
+    --gray99: hsl(0, 0%, calc(var(--whiteLightness) - 40%));
+    --darkness: hsl(0, 0%, calc(var(--whiteLightness) - 72.5%));
+    --darkLord: hsl(0, 0%, calc(var(--whiteLightness) - 83.5%));
+    --greenDark: #0B1416;
+    --commentBorder: #343536;
+    --commentBorderHover: #D7DADC;
+    --bodyText: #D7DADC;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: var(--space);
+    font-size: 14px;
+    line-height: 16px;
+    font-family: 'Roboto', serif;
+}
+
+* {
+    color: var(--black);
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+button {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* CUSTOM SCROLLBAR */
+
+::-webkit-scrollbar {
+    background-color: var(--background);
+    width: 8px;
+    border-radius: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--gray66);
+    border-radius: 1px;
+    transition: background-color 0.5s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--orangeFF);
+}
+
+* {
+    scrollbar-color: var(--grayD9) var(--EC);
+    scrollbar-width: thin;
+}
+
+@media (max-width: 1024px) {
+    ::-webkit-scrollbar {
+        width: 3px;
+    }
+}
+
+.active.active {
+    color: var(--buttonColor);
+    background-color: var(--darkLord);
+}
+
+.active.active:hover {
+    background-color: var(--commentBorder);
+}
+
+.active.active svg {
+    fill: var(--buttonColor);
+}

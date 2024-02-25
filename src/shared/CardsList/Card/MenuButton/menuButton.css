@@ -1,0 +1,71 @@
+.button {
+    width: 31px;
+    height: 31px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(90deg);
+    border-radius: 31px;
+    background: transparent;
+    border: 0;
+    position: absolute;
+    top: -15px;
+    right: -10px;
+    padding: 6px 6px;
+    border: none;
+    border-radius: 3px;
+    border: .5px solid transparent;
+    outline: none;
+    transition: color .05s ease-in-out, background-color .05s ease-in-out, border-color .05s ease-in-out;
+}
+
+.button:focus-visible {
+    background-color: var(--background);
+    border-color: var(--gray66);
+}
+
+.button:active {
+    color: var(--coral);
+}
+
+.button svg {
+    fill: var(--grayC4);
+    transition: fill .05s ease-in-out;
+}
+
+.button:active svg {
+    fill: var(--coral);
+}
+
+@media all and (min-width: 1024px) {
+    .button {
+        position: absolute;
+        top: 0;
+        right: 10px;
+    }
+}
+
+@media (hover: hover) {
+    .button:hover {
+        border-color: var(--gray66);
+        background-color: var(--background);
+    }
+
+    .button:hover svg {
+        color: var(--orangeFF);
+        background-color: var(--background);
+        fill: var(--orangeFF);
+    }
+}
+
+@media (hover: none) {
+    .button:active {
+        color: var(--coral);
+        border-color: var(--gray66);
+        background-color: var(--background);
+    }
+
+    .button:active svg {
+        fill: var(--orangeFF);
+    }
+}

@@ -1,0 +1,19 @@
+.list {
+    display: flex;
+    position: absolute;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.15));
+    animation: flash .15s forwards;
+    background-color: var(--commentBorder);
+    z-index: 10;
+}
+
+@keyframes flash {
+    0% {
+        opacity: .3;
+    }
+    100% {
+        opacity: 1;
+    }
+}

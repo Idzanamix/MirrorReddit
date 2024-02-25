@@ -1,0 +1,27 @@
+.button {
+    font-family: 'Roboto';
+    background-color: var(--buttonColor);
+    border-radius: 35px;
+    padding: 8px 25px;
+    color: var(--background);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    transition: opacity .05s ease-in-out, color .05s ease-in-out, transform .05s ease-in-out;
+    outline-color: var(--gray99);
+    position: absolute;
+    top: calc(50% - 26px);
+    left: calc(50% - 53px);
+}
+
+.button:focus-visible {
+    outline: 3px solid var(--orange);
+}
+
+.button:hover {
+    opacity: .7;
+}
+
+.button:active {
+    transform: scale(1.02);
+}

@@ -1,0 +1,39 @@
+.button {
+    position: fixed;
+    white-space: nowrap;
+    bottom: 44px;
+    right: 20px;
+    font-family: 'Roboto';
+    color: var(--background);
+    background-color: var(--buttonColor);
+    border-radius: 35px;
+    padding: 8px 25px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    transition: opacity .05s ease-in-out, color .05s ease-in-out, transform .05s ease-in-out;
+    outline-color: var(--gray99);
+    border: 1px solid var(--grayD9);
+    z-index: 10000;
+}
+
+.button:focus-visible {
+    outline: 3px solid var(--orange);
+}
+
+.button:hover {
+    background-color: var(--grayC4);
+}
+
+.button:active {
+    transform: scale(1.02);
+}
+
+@media (max-width: 1024px) {
+    .button {
+        font-size: 10px;
+        padding: 5px 15px;
+        bottom: 10px;
+        right: 0;
+    }
+}

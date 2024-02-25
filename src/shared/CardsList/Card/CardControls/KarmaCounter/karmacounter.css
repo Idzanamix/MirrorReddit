@@ -1,0 +1,60 @@
+.karmaCounter {
+    display: flex;
+    align-items: center;
+}
+
+.karmaValue {
+    color: var(--white);
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 500;
+}
+
+.up,
+.down {
+    outline-color: var(--orangeFF);
+    outline-offset: 3px;
+    border-radius: 3px;
+}
+
+.down svg {
+    transform: rotate(180deg);
+}
+
+.up svg,
+.down svg {
+    fill: var(--white);
+    transition: fill .1s ease-in-out;
+}
+
+.up:hover svg {
+    fill: var(--green);
+    transition: fill .1s ease-in-out;
+}
+
+.down:hover svg {
+    fill: var(--redCC);
+    transition: fill .1s ease-in-out;
+}
+
+@media all and (min-width: 1024px) {
+    .karmaCounter {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .karmaValue {
+        padding: 7px 0;
+        font-size: 14px;
+    }
+
+    .down {
+        padding: 0;
+    }
+
+    .up svg,
+    .down svg {
+        fill: var(--grayD9);
+    }
+}

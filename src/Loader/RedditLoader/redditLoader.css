@@ -1,0 +1,37 @@
+.loader {
+    width: 64px;
+    height: 64px;
+}
+
+.loader svg {
+    overflow: visible;
+}
+
+.loader svg path,
+.loader svg circle,
+.loader svg ellipse {
+    stroke-width: 0;
+}
+
+.loader:before {
+    content: "";
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    background-color: var(--orangeFF);
+    opacity: 0.75;
+    border-radius: 100%;
+    animation: 1.5s ease-in-out 0s infinite normal none running scaleout;
+    z-index: -1;
+}
+
+@keyframes scaleout {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}

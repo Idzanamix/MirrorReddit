@@ -1,0 +1,82 @@
+:root {
+    --menutop: 17px;
+    --menuright: 15px;
+}
+
+.panel {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+    padding-top: 10px;
+    border-top: 1px solid var(--commentBorder);
+    width: 100%;
+}
+
+.item {
+    border-radius: 6px;
+    padding: 8px 18px;
+    display: flex;
+    gap: 6px;
+    transition: color .05s ease-in-out, background-color .05s ease-in-out, border-color .05s ease-in-out, scale .05s ease-in-out;
+    outline: none;
+    border: .5px solid transparent;
+}
+
+.item svg {
+    overflow: visible;
+    fill: var(--grayC4);
+    transition: fill .05s ease-in-out;
+}
+
+.item:focus-visible {
+    background-color: var(--background);
+    border-color: var(--gray66);
+}
+
+.item:first-child:focus-visible {
+    background-color: transparent;
+}
+
+.item:first-child {
+    padding-left: 0;
+    pointer-events: none;
+}
+
+@media (max-width: 1024px) {
+    .item {
+        padding: 10px 12px;
+    }
+}
+
+@media (hover: hover) {
+    .item:hover svg {
+        fill: var(--orangeFF);
+    }
+
+    .item:hover {
+        background-color: var(--darkLord);
+        color: var(--orangeFF);
+        border-color: var(--gray66);
+    }
+}
+
+.item:active {
+    transform: scale(1.01);
+    background-color: var(--background);
+    color: var(--orangeFF);
+    border-color: var(--gray66);
+}
+
+@media (hover: none) {
+    .item:active svg {
+        fill: var(--orangeFF);
+    }
+
+    .item:active {
+        transform: scale(1.1);
+        background-color: var(--background);
+        color: var(--orangeFF);
+        border-color: var(--gray66);
+    }
+}
+

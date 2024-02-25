@@ -1,0 +1,19 @@
+.searchBlock {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--dark);
+    box-shadow: 0 0 20 rgba(0, 0, 0, 0.1);
+    min-width: 74px;
+}
+
+@media all and (min-width: 1024px) {
+    .searchBlock {
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+        order: 3;
+        align-self: end;
+    } 
+}

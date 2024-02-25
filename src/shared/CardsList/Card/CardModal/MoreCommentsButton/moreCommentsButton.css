@@ -1,0 +1,29 @@
+.button {
+    color: var(--sky);
+    align-items: center;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    outline: none;
+    padding-top: 1px;
+    margin-top: 5px;
+    margin-left: -27px;
+    border-bottom: 1px solid transparent;
+    transition: border-color .05s ease-in-out, color .05s ease-in-out;
+}
+
+.button:focus-visible {
+    border-color: var(--sky);
+}
+
+.button:hover {
+    border-color: var(--sky);
+}
+
+@media all and (min-width: 1024px) {
+    .button {
+        font-size: 12px;
+    }
+}
+

@@ -1,0 +1,183 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 35px;
+    border: 3px;
+    animation: formOpen .15s forwards;
+    background-color: var(--background);
+}
+
+@keyframes formOpen {
+    0% {
+        opacity: .3;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.textarea {
+    border-radius: 3px 3px 0px 0px;
+    border: 1px solid var(--commentBorder);
+    background-color: transparent;
+    color: var(--bodyText);
+    padding: 16px;
+    min-height: 138px;
+    max-width: 200px;
+    min-width: 100%;
+    font-family: 'Roboto';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    outline: none;
+    transition: border-color .15s ease-in-out;
+}
+
+.textarea:focus-visible {
+    border-color: var(--commentBorderHover);
+}
+
+.label {
+    position: absolute;
+    top: 16px;
+    left: 17.5px;
+    color: var(--commentBorderHover);
+    transition: opacity .15s ease-in-out;
+    pointer-events: none;
+}
+
+.buttonsWrapper {
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    background-color: var(--commentBorder);
+    border-radius: 0px 0px 3px 3px;
+    position: sticky;
+    bottom: -60px;
+}
+
+.item {
+    padding: 8px 14px;
+    border-radius: 3px;
+    transition: background-color .05s ease-in-out, scale .05s ease-in-out;
+    outline: none;
+    border: .5px solid transparent;
+}
+
+.item:first-child svg {
+    transform: rotate(90deg);
+}
+
+.item svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--gray99);
+    transition: fill .05s ease-in-out;
+    background-color: transparent;
+}
+
+.item:focus-visible {
+    background-color: var(--darkLord);
+    border-color: var(--orangeFF);
+}
+
+.item:active svg {
+    fill: var(--orangeFF);
+}
+
+.item:active {
+    transform: scale(1.01);
+}
+
+.submitButton {
+    font-family: 'Roboto';
+    background-color: var(--orangeFF);
+    border-radius: 20px;
+    padding: 8px 30px;
+    margin-left: auto;
+    margin-right: 5px;
+    color: var(--white);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    transition: opacity .05s ease-in-out, color .05s ease-in-out, transform .05s ease-in-out;
+    outline-color: var(--gray99);
+}
+
+.submitButton:focus-visible {
+    background-color: var(--coral);
+    outline: 3px solid var(--gray99);
+}
+
+.submitButton:active {
+    color: var(--gray99);
+    transform: scale(1.01);
+}
+
+.cancelBtn {
+    font-family: 'Roboto';
+    background-color: var(--buttonColor);
+    border-radius: 35px;
+    padding: 8px 25px;
+    margin-left: auto;
+    margin-right: 10px;
+    color: var(--background);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    transition: opacity .05s ease-in-out, color .05s ease-in-out, transform .05s ease-in-out;
+    outline-color: var(--gray99);
+}
+
+.cancelBtn:focus-visible {
+    outline: 3px solid var(--orangeFF);
+}
+
+.cancelBtn:active {
+    transform: scale(1.02);
+}
+
+.btnSizeMobile {
+    padding: 6px 18px;
+    font-size: 12px;
+}
+
+@media (hover: hover) {
+    .item:hover {
+        background-color: var(--darkLord);
+        border-color: var(--gray66);
+    }
+
+    .item:hover svg {
+        fill: var(--orangeFF);
+    }
+
+    .submitButton:hover {
+        background-color: var(--coral);
+    }
+
+    .cancelBtn:hover {
+        opacity: .7;
+    }
+}
+
+@media (hover: none) {
+    .item:active {
+        transform: scale(1.01);
+    }
+
+    .item:active svg {
+        fill: var(--orangeFF);
+    }
+
+    .cancelBtn:active {
+        transform: scale(1.02);
+    }
+}

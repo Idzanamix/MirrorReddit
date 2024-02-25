@@ -1,0 +1,20 @@
+.createdAd,
+.createdAd * {
+    color: var(--grayC4);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-top: 7px;
+}
+
+.createdAd {
+    margin-right: 10px;
+}
+
+@media (max-width: 1023px) {
+    .createdAd,
+    .createdAd * {
+        font-size: 10px;
+    }
+}

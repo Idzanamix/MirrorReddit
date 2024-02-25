@@ -1,0 +1,35 @@
+.link {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 95px;
+}
+
+.logo {
+    height: 32px;
+    width: 32px;
+    margin-right: 8px;
+    overflow: visible;
+}
+
+.title {
+    display: block;
+    height: 22px;
+    width: auto;
+}
+
+.logo svg path,
+.logo svg circle,
+.logo svg ellipse {
+    stroke-width: 0;
+}
+
+@media (max-width: 1024px) {
+    .logo {
+        height: 27px;
+        width: 27px;
+    }
+
+    .link {
+        margin-right: 25px;
+    }
+}
