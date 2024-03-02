@@ -1,22 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
 :root {
-    --background: #1A1A1B;
-    --darkRgb: #141415;
-    --space: #000000;
+    --trueLight: #D7DADC;
+    --trueGreenBlack: #1A1A1B;
+    --trueWhite: #ffffff;
+    --background: var(--trueWhite);
+    --darkRgb: #D2DADD;
+    --bodyText: #0F1A1C;
+    --logoColor: #ff4500;
+    --space: var(--EC);
     --black: #333333;
     --orange: #CC6633;
+    --orangeLogo: var(--gray66);
     --orangeFF: #D93A00;
     --coral: coral;
     --sky: #4FBCFF;
+    --toggleBackground: #0045AC;
+    --toggleBackgroundHover: #1870F4;
     --darkLine: #343536;
     --redCC: #CC3361;
     --green: #A4CC33;
     --EC: #ECECEC;
     --E5: #E5E5E5;
-    --buttonColor: #D7DADC;
+    --buttonColor: var(--trueWhite);
     --whiteLightness: 100%;
-    --white: hsl(0, 0%, var(--whiteLightness));
+    --white: var(--bodyText);
     --grayF4: hsl(0, 0%, calc(var(--whiteLightness) - 4%));
     --grayF3: hsl(0, 0%, calc(var(--whiteLightness) - 5%));
     --grayD9: hsl(0, 0%, calc(var(--whiteLightness) - 15%));
@@ -24,11 +32,57 @@
     --gray66: hsl(0, 0%, calc(var(--whiteLightness) - 60%));
     --gray99: hsl(0, 0%, calc(var(--whiteLightness) - 40%));
     --darkness: hsl(0, 0%, calc(var(--whiteLightness) - 72.5%));
+    --darkLord: var(--trueLight);
+    --greenDark: #0B1416;
+    --greenLight: var(--bodyText);
+    --commentBorder: var(--trueLight);
+    --commentBorderHover: var(--gray99);
+    --mobileButton: var(--trueLight);
+    --whiteGray: #000000;
+    --greenStrong: var(--trueWhite);
+    --greenHover: var(--EC);
+    --karmaCounterColor: var(--gray66);
+    --titleColorHover: var(--gray66);
+    --timeCreated: #576F76;
+    --commentsButton: var(--gray66);
+    --formButtonHover: var(--EC);
+    --avatarBackground: var(--trueWhite);
+    --backToTopButton: var(--gray99);
+    --colorFooter: #d3d6d6;
+    --footerBorder: var(--gray99);
+    --commentsButtonColor: var(--gray66);
+    --colorScrim: #00000099;
+}
+
+.isDark {
+    --background: var(--trueGreenBlack);
+    --darkRgb: #141415;
+    --logoColor: var(--white);
+    --space: #000000;
+    --orangeLogo: #ff4500;
+    --buttonColor: var(--trueLight);
+    --whiteLightness: 100%;
+    --white: hsl(0, 0%, var(--whiteLightness));
     --darkLord: hsl(0, 0%, calc(var(--whiteLightness) - 83.5%));
     --greenDark: #0B1416;
-    --commentBorder: #343536;
-    --commentBorderHover: #D7DADC;
-    --bodyText: #D7DADC;
+    --greenLight: var(--bodyText);
+    --commentBorder: var(--darkLine);
+    --commentBorderHover: var(--trueLight);
+    --bodyText: var(--trueLight);
+    --mobileButton: #1A282D;
+    --whiteGray: #f0f6fc;
+    --greenStrong: #0F1A1C;
+    --greenHover: #131F23;
+    --karmaCounterColor: var(--trueLight);
+    --commentsButton: var(--grayC4);
+    --commentBorderHover: var(--trueLight);
+    --formButtonHover: var(--darkLord);
+    --avatarBackground: var(--gray66);
+    --avatarBackgroundImage: linear-gradient(0deg, #2A3C42ff, #0B1416ff 75%);
+    --backToTopButton: var(--trueLight);
+    --colorFooter: #141415;
+    --footerBorder: var(--darkLine);
+    --commentsButtonColor: var(--bodyText);
 }
 
 body {
@@ -60,6 +114,11 @@ button {
     cursor: pointer;
 }
 
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0
+}
+
 a {
     text-decoration: none;
 }
@@ -89,19 +148,44 @@ a {
 
 @media (max-width: 1024px) {
     ::-webkit-scrollbar {
-        width: 3px;
+        width: 0;
+    }
+
+    .isDark {
+        --background: var(--greenDark);
+        --darkRgb: transparent;
+        --commentBorder: var(--mobileButton);
+        --darkLord: var(--mobileButton);
+        --space: var(--greenDark);
+        --greenHover: #131F23;
+        --colorFooter: var(--greenStrong);
     }
 }
 
-.active.active {
+.isDark .active.active {
     color: var(--buttonColor);
     background-color: var(--darkLord);
 }
 
-.active.active:hover {
-    background-color: var(--commentBorder);
+.isDark .active.active svg {
+    fill: var(--buttonColor);
+}
+
+.active.active {
+    color: var(--gray66);
+    background-color: var(--darkLord);
 }
 
 .active.active svg {
-    fill: var(--buttonColor);
+    fill: var(--gray66);
+}
+
+@media (hover:hover) {
+    .isDark .active.active:hover {
+        background-color: var(--commentBorder);
+    }
+
+    .active.active:hover {
+        background-color: var(--E5);
+    }
 }

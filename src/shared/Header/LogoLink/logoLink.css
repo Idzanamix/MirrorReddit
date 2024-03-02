@@ -1,7 +1,8 @@
 .link {
     display: inline-flex;
     align-items: center;
-    margin-right: 95px;
+    margin-right: 65px;
+    overflow: visible;
 }
 
 .logo {
@@ -23,13 +24,33 @@
     stroke-width: 0;
 }
 
+.namix {
+    overflow: visible;
+    height: 28px;
+    display: flex;
+    align-items: center;
+}
+
+.namix g text {
+    fill: var(--orangeLogo);
+    font-weight: bold;
+}
+
 @media (max-width: 1024px) {
+    .title {
+        height: 15px;
+    }
+
+    .namix {
+        height: 19px;
+    }
+
     .logo {
         height: 27px;
         width: 27px;
     }
 
     .link {
-        margin-right: 25px;
+        margin-right: 10px;
     }
 }

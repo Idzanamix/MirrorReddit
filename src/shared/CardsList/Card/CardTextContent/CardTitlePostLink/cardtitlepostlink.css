@@ -8,14 +8,24 @@
     overflow: visible;
     padding: 0;
     cursor: pointer;
+    z-index: 100;
 }
 
 .title .link {
     color: var(--white);
+    transition: color .1s ease-in-out, opacity .1s ease-in-out;
+}
+
+@media(hover:hover) {
+    .title:hover .link {
+        color: var(--titleColorHover);
+        opacity: .95;
+    }
 }
 
 @media (max-width: 1024px) {
     .title {
         font-size: 14px;
+        margin: 0;
     }
 }

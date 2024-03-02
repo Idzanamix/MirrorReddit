@@ -13,6 +13,9 @@
 .white {
     color: var(--white);
 }
+.whiteGray {
+    color: var(--whiteGray)
+}
 .grayF4 {
     color: var(--grayF4);
 }

@@ -1,6 +1,6 @@
 .button {
     font-family: 'Roboto';
-    background-color: var(--buttonColor);
+    background-color: var(--backToTopButton);
     border-radius: 35px;
     padding: 8px 25px;
     color: var(--background);
@@ -10,7 +10,7 @@
     transition: opacity .05s ease-in-out, color .05s ease-in-out, transform .05s ease-in-out;
     outline-color: var(--gray99);
     position: absolute;
-    top: calc(50% - 26px);
+    top: 51.5px;
     left: calc(50% - 53px);
 }
 
@@ -24,4 +24,11 @@
 
 .button:active {
     transform: scale(1.02);
+}
+
+@media (max-width: 1024px) {
+    .button {
+        top: 58px;
+
+    }
 }

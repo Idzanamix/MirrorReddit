@@ -122,6 +122,7 @@
     flex-direction: row;
     justify-content: start;
     margin-right: 4px;
+    background-color: transparent;
 }
 
 .karmaCounter span {

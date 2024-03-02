@@ -5,7 +5,7 @@
     right: 20px;
     font-family: 'Roboto';
     color: var(--background);
-    background-color: var(--buttonColor);
+    background-color: var(--backToTopButton);
     border-radius: 35px;
     padding: 8px 25px;
     text-align: center;
@@ -21,12 +21,14 @@
     outline: 3px solid var(--orange);
 }
 
-.button:hover {
-    background-color: var(--grayC4);
-}
-
 .button:active {
     transform: scale(1.02);
+}
+
+@media (hover:hover) {
+    .button:hover {
+        background-color: var(--grayC4);
+    }
 }
 
 @media (max-width: 1024px) {

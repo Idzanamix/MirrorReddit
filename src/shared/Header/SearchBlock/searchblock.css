@@ -5,7 +5,7 @@
     align-items: center;
     background-color: var(--dark);
     box-shadow: 0 0 20 rgba(0, 0, 0, 0.1);
-    min-width: 74px;
+    position: relative;
 }
 
 @media all and (min-width: 1024px) {

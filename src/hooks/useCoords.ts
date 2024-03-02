@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-type Coords = {
+export type Coords = {
     left: number;
     top: number;
 };

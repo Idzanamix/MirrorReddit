@@ -1,8 +1,9 @@
 
-import { setUserData } from "../user/userSlise";
-import { ThunkActionType } from "../storeRedux";
-import { setToken } from "./tokenSlice";
 import axios from "axios";
+import { resetToken, setToken } from "./tokenSlice";
+import { resetUserData  } from "../user/userSlise";
+import { ThunkActionType } from "../storeRedux";
+
 
 interface IQueryCode extends URLSearchParams {
     code?: string;
@@ -14,9 +15,9 @@ export const saveTokenAsyncThunk: any = (): ThunkActionType => async (dispatch, 
 
     if (createdAt) {
         setTimeout(() => {
-            dispatch(setToken(''));
+            dispatch(resetToken());
 
-            dispatch(setUserData({ name: '', iconImg: '' }));
+            dispatch(resetUserData());
 
         }, 7200000 - (timeNow - createdAt));
 
@@ -27,15 +28,15 @@ export const saveTokenAsyncThunk: any = (): ThunkActionType => async (dispatch, 
         get: (searchParams, prop: any) => searchParams.get(prop),
     });
 
-    if (!params.code || !process.env.CLIENT_ID) return;
+    if (!params.code || !process.env.CLIENT_ID || !process.env.SECRET) return;
 
     try {
         const { data } = await axios.post('https://www.reddit.com/api/v1/access_token',
-            `grant_type=authorization_code&code=${params.code}&redirect_uri=http://localhost:3000/auth`,
+            `grant_type=authorization_code&code=${params.code}&redirect_uri=${process.env.SITE_URL}:80/auth`,
             {
                 auth: {
                     username: process.env.CLIENT_ID,
-                    password: 'VEAVqqPu7VVpRhOmQpqJmaQjl3Zrig'
+                    password: process.env.SECRET
                 },
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -47,7 +48,6 @@ export const saveTokenAsyncThunk: any = (): ThunkActionType => async (dispatch, 
 
     } catch (error: any) {
         console.log(error);
-
         alert(`Token error: ${error.message}`);
     }
 }

@@ -2,9 +2,12 @@
     display: flex;
     flex-direction: column;
     justify-content: start;
-    overflow: visible;
     background-color: var(--space);
     position: relative;
+}
+
+.card:last-child {
+    min-height: 310px;
 }
 
 .card:first-child {
@@ -16,9 +19,11 @@
     flex-direction: row;
     justify-content: space-between;
     background-color: var(--background);
-    border: 1px solid var(--commentBorder);
     border-radius: 5px;
     margin-right: 10px;
+    border: 1px solid var(--commentBorder);
+    transition: border-color .1s ease-in-out, background-color .1s ease-in-out;
+    position: relative;
 }
 
 .wrapper {
@@ -27,6 +32,7 @@
     gap: 20px;
     padding: 20px;
     width: 100%;
+    cursor: pointer;
 }
 
 .content {
@@ -46,34 +52,66 @@
     height: 127px;
     overflow: hidden;
     cursor: pointer;
+    z-index: 100;
 }
 
 .previewIsOpen {
     display: flex;
     align-items: center;
     justify-content: center;
-    max-height: 100vh;
+    max-height: 60vh;
     background-color: rgb(0 0 0 / 1);
     border-radius: 20px;
     overflow: hidden;
+    z-index: 1000;
 }
 
 .previewIsOpen img {
     object-fit: contain;
     overflow: clip;
+    z-index: 100;
+}
+
+.link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+@media (hover: hover) {
+    .body:hover {
+        border-color: var(--commentBorderHover);
+    }
 }
 
 @media all and (max-width: 1024px) {
+    .card {
+        border: 1px solid var(--commentBorder);
+        border-right: none;
+        border-left: none;
+    }
+
     .card:first-child {
         padding: 0;
+    }
+
+    .card:last-child {
+        min-height: 305px;
     }
 
     .body {
         flex-direction: column;
         margin: 0;
         border-radius: 0;
-        border-right: 0;
-        border-left: 0;
+        border: none;
+    }
+
+    @media (hover: hover) {
+        .body:hover {
+            background-color: var(--greenHover);
+            border-radius: 20px;
+        }
     }
 
     .preview {
@@ -84,16 +122,26 @@
         overflow: hidden;
     }
 
-    .preview img {
+    .preview img,
+    .preview video {
         border-radius: 10px;
     }
 
+    .previewIsOpen {
+        margin-bottom: 10px;
+    }
+
     .content {
-        justify-content: start;
+        flex-direction: row-reverse;
+        justify-content: space-between;
         padding: 0;
+        margin-bottom: 10px;
+        position: static;
     }
 
     .wrapper {
-        padding: 15px 15px 5px 15px;
+        position: relative;
+        padding: 10px 15px 0 15px;
+        gap: 0;
     }
 }

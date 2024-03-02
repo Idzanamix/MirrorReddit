@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import styles from './userlink.css';
+import React, { useState } from 'react';
 import { IconRedditDefault } from '../../../../Icons';
 import { useUserAvatar } from '../../../../../hooks/useUserAvatar';
 

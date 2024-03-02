@@ -4,16 +4,6 @@
     justify-content: start;
 }
 
-.metaData {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    font-size: 10px;
-    line-height: 12px;
-    margin: 0;
-    margin-bottom: 8px;
-}
-
 .commentsButton {
     margin-top: auto;
 }
@@ -21,14 +11,8 @@
 @media all and (min-width: 1024px) {
     .textContent {
         order: 1;
-        /* flex-direction: column-reverse; */
         width: 100%;
         margin-right: auto;
-    }
-
-    .metaData {
-        flex-direction: row-reverse;
-        align-self: start;
     }
 
     .userLink {

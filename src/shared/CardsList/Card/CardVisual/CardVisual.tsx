@@ -27,9 +27,7 @@ export function CardVisual(
         postHighQualityVideoUrl,
         postHint } = props;
     const [error, setError] = useState(false);
-
     const noop = () => { };
-
     const onError = () => setError(true);
 
     useEffect(() => {

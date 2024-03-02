@@ -1,7 +1,6 @@
-import { UserLink } from './UserLink';
-import { CreatedAd } from './CreatedAd';
 import React, { useContext } from 'react';
 import styles from './cardtextcontent.css';
+import { CardAnchor } from '../CardAnchor';
 import { CardTitlePostLink } from './CardTitlePostLink';
 import { cardContext } from '../../../../context/CardContext';
 import { CommentsButton } from '../CardControls/CommentsButton';
@@ -17,13 +16,8 @@ export function CardTextContent() {
 
     return (
         <div className={styles.textContent}>
-            <div className={styles.metaData}>
-                <UserLink
-                    anchorName={anchorName}
-                />
+            {desktop && <CardAnchor {...{ anchorName, createdTime }} />}
 
-                <CreatedAd createdTime={createdTime} />
-            </div>
             <CardTitlePostLink
                 postTitle={postTitle}
                 postUrl={postUrl}

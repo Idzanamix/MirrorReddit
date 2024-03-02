@@ -2,6 +2,7 @@ import DOMPurify from "dompurify";
 import styles from './cardmodal.css';
 import React, { useRef } from "react";
 import { createPortal } from "react-dom";
+import { useDispatch } from "react-redux";
 import { CardVisual } from "../CardVisual";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -19,12 +20,14 @@ import { KarmaCounter } from "../CardControls/KarmaCounter";
 import { RedditLoader } from "../../../../Loader/RedditLoader";
 import { useModalCloser } from "../../../../hooks/useModalCloser";
 import { CardTitlePostLink } from "../CardTextContent/CardTitlePostLink";
+import { resetModalData } from "../../../../storeRedux/modal/modalSlice";
+import { useCustomMatchMedia } from "../../../../hooks/useCustomMatchMedia";
 import { useModalCommentsData } from "../../../../hooks/useCommentsPostData";
 import { convertRedditTextHtml } from "../../../../utils/ts/convertRedditTextHtml";
 
 export function CardModal() {
     const modalRoot = document.querySelector('#modal_root');
-    const { postId, subreddit } = useParams();
+    const { postId, subreddit, post } = useParams();
 
     if (!modalRoot || !subreddit || !postId) return null;
 
@@ -45,14 +48,19 @@ export function CardModal() {
             postHighQualityVideoUrl,
             numberComments }
     } = useModalCommentsData(subreddit, postId);
+    const dispatch = useDispatch();
     const refModal = useRef<HTMLDivElement>(null);
     const refButtonToTop = useRef(null);
+    const { desktop } = useCustomMatchMedia();
 
     const scrollToTop = () => refModal.current && refModal.current.scrollTo({ top: 0 });
 
     const navigate = useNavigate();
 
-    const onClose = () => navigate(-1);
+    const onClose = () => {
+        dispatch(resetModalData());
+        navigate(`/${post}`);
+    };
 
     useModalCloser({
         onClose: onClose,
@@ -131,8 +139,9 @@ export function CardModal() {
                         >
                             <ModalControlPanel props={numberComments} />
                             <ModalCommentsForm
-                                rootId="footer_root"
+                                autoFocus={desktop ? true : false}
                                 commentId="modalFormComment"
+                                rootId="footer_root"
                             />
                             <ModalSortBlock />
                         </div>

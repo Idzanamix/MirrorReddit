@@ -1,0 +1,17 @@
+.metaData {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    font-size: 10px;
+    line-height: 12px;
+    margin: 0;
+    margin-bottom: 12px;
+}
+
+@media all and (min-width: 1024px) {
+    .metaData {
+        flex-direction: row-reverse;
+        align-self: start;
+        margin-bottom: 10px;
+    }
+}

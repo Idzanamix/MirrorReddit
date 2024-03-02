@@ -103,7 +103,7 @@
     padding: 8px 30px;
     margin-left: auto;
     margin-right: 5px;
-    color: var(--white);
+    color: var(--trueWhite);
     text-align: center;
     font-size: 14px;
     font-weight: 500;
@@ -128,7 +128,7 @@
     padding: 8px 25px;
     margin-left: auto;
     margin-right: 10px;
-    color: var(--background);
+    color: var(--trueGreenBlack);
     text-align: center;
     font-size: 14px;
     font-weight: 500;
@@ -149,9 +149,16 @@
     font-size: 12px;
 }
 
+@media (max-width: 1024px) {
+    .label {
+        font-size: 14px;
+        line-height: 16px;
+    }
+}
+
 @media (hover: hover) {
     .item:hover {
-        background-color: var(--darkLord);
+        background-color: var(--formButtonHover);
         border-color: var(--gray66);
     }
 

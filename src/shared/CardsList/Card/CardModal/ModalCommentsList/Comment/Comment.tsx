@@ -37,12 +37,10 @@ export const Comment = memo(({ commentItemData }: ICommentProps) => {
         moreCommentsData
     } = commentItemData;
     const dispatch = useDispatch();
-
     const [isCommentOpen, setIsCommentOpen] = useState(true);
+    const formIsOpen = useAppSelector(selectFormIsOpen(commentId));
 
     const handleHideCommentToggle = () => setTimeout(() => setIsCommentOpen(!isCommentOpen), 10);
-
-    const formIsOpen = useAppSelector(selectFormIsOpen(commentId));
 
     const setCloseAllCommentsForm = () => storeRedux
         .getState()?.commentsForm
@@ -58,7 +56,6 @@ export const Comment = memo(({ commentItemData }: ICommentProps) => {
 
         setOpenCommentForm();
     }
-
 
     return (
         <li className={styles.container}>
@@ -132,6 +129,7 @@ export const Comment = memo(({ commentItemData }: ICommentProps) => {
                                                 commentId={commentId}
                                                 onClose={setCloseCommentForm}
                                                 rootId='comments_root'
+                                                autoFocus
                                                 cancelBtn
                                             />}
 

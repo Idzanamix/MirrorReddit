@@ -1,0 +1,142 @@
+.footer {
+    height: 155px;
+    background-color: var(--colorFooter);
+    position: absolute;
+    bottom: 0;
+    width: calc(100% - 10px);
+    border-radius: 5px;
+    border: 1px solid var(--footerBorder);
+    padding: 20px;
+    display: flex;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    border-right: 1px solid var(--footerBorder);
+    width: 33.3%;
+    min-width: 165px;
+}
+
+.middle {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    border-right: 1px solid var(--footerBorder);
+    width: 33.3%;
+}
+
+.right {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    width: 33.3%;
+}
+
+.text {
+    max-width: 200px;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.link span {
+    transition: color .1s ease-in-out;
+}
+
+.github {
+    fill: var(--whiteGray);
+    transition: fill .1s ease-in-out;
+}
+
+.gitlab {
+    transition: fill .1s ease-in-out;
+}
+
+.telegram {
+    transition: fill .1s ease-in-out;
+    transition: opacity .1s ease-in-out;
+}
+
+.vk {
+    margin-top: 3px;
+    margin-left: 3px;
+    margin-bottom: -3.5px;
+    margin-right: -3px;
+    transform: scale(1.2);
+    transition: opacity .1s ease-in-out;
+}
+
+.email {
+    width: 30px;
+    height: 30px;
+    transition: opacity .1s ease-in-out;
+}
+
+@media (max-width: 1024px) {
+    .footer {
+        border-radius: 0;
+        width: 100%;
+        padding: 15px;
+        border-right: none;
+        border-left: none;
+        flex-wrap: wrap;
+    }
+
+    .text {
+        width: 100%;
+        max-width: 200px;
+        text-align: center;
+    }
+
+    .left {
+        width: 100%;
+        align-items: center;
+        border: none;
+        margin-bottom: 5px;
+    }
+
+    .middle {
+        padding-left: 15px;
+        flex-direction: row;
+        width: 50%;
+    }
+
+    .right {
+        flex-direction: row;
+        width: 50%;
+    }
+}
+
+@media (hover: hover) {
+    .link:hover span {
+        color: var(--gray99);
+    }
+
+    .link:hover .github {
+        fill: var(--gray99);
+    }
+
+    .link:hover .vk,
+    .link:hover .email,
+    .link:hover .telegram {
+        opacity: .6;
+    }
+
+    .gitlab path:hover {
+        fill: var(--orangeFF);
+    }
+
+    .telegram:hover g circle {
+        fill: var(--sky);
+    }
+}

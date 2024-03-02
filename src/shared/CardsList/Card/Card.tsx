@@ -1,8 +1,11 @@
 import styles from './card.css';
+import { Link } from 'react-router-dom';
+import { CardAnchor } from './CardAnchor';
 import { CardLoader } from './CardLoader';
 import { useDispatch } from 'react-redux';
 import { MenuButton } from './MenuButton';
 import { CardControls } from './CardControls';
+import { CardListFooter } from '../CardListFooter';
 import { CardTextContent } from './CardTextContent';
 import { CardVisual } from './CardVisual/CardVisual';
 import { cardContext } from '../../../context/CardContext';
@@ -19,16 +22,16 @@ interface ICardProps extends HTMLAttributes<HTMLDListElement> {
 }
 
 export const Card = memo(forwardRef(
-    ({ cardItemData, style, onLoading }: ICardProps, ref: LegacyRef<HTMLElement>) => {
+    ({ cardItemData, style, onLoading }: ICardProps, ref: LegacyRef<HTMLDivElement>) => {
         const dispatch = useDispatch();
+        const { anchorName, createdTime, postSubreddit, postId } = cardItemData;
         const isImageOpen = useAppSelector(selectPostIsOpen(cardItemData.postId));
         const { loading, count } = useAppSelector(selectPostsBlock);
-        const { desktop } = useCustomMatchMedia();
         const [refEndingOfList] = useScrollPostsData();
+        const { mobile } = useCustomMatchMedia();
 
-        function handleClick() {
+        const handleClick = () =>
             dispatch(setImageIsOpen({ isImageOpen: !isImageOpen, postId: cardItemData.postId }));
-        }
 
         useEffect(() => {
             if (!isImageOpen) {
@@ -44,25 +47,34 @@ export const Card = memo(forwardRef(
                 >
                     {cardItemData.isLast
                         ?
-                        <CardLoader
-                            ref={refEndingOfList}
-                            loading={loading}
-                            count={count}
-                        />
+                        <>
+                            <CardLoader
+                                ref={refEndingOfList}
+                                loading={loading}
+                                count={count}
+                            />
+                            <CardListFooter />
+                        </>
 
                         :
-                        <article className={styles.body}
-                            ref={ref}
+                        <article
+                            className={styles.body}
                             onLoad={onLoading}
+                            ref={ref}
                         >
+                            <Link to={`${postSubreddit}/comments/${postId}`} className={styles.link}/>
+                            
                             <div className={styles.wrapper}>
+                                {mobile &&
+                                    <CardAnchor {...{ anchorName, createdTime }} />}
+
                                 <div className={styles.content}>
                                     <CardVisual
                                         className={styles.preview}
-                                        props={cardItemData}
-                                        light
-                                        videoDisabled
                                         onClick={handleClick}
+                                        props={cardItemData}
+                                        videoDisabled
+                                        light
                                     />
                                     <CardTextContent />
                                     <MenuButton />
@@ -73,7 +85,7 @@ export const Card = memo(forwardRef(
                                         className={styles.previewIsOpen}
                                         props={cardItemData}
                                         onLoading={onLoading}
-                                        videoHeight={desktop ? '550px' : '70vh'}
+                                        videoHeight={mobile ? '70vh' : '550px'}
                                     />}
                             </div>
                             <CardControls />

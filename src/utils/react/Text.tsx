@@ -7,6 +7,7 @@ export enum EColor {
     orangeFF = 'orangeFF',
     green = 'green',
     white = 'white',
+    whiteGray = 'whiteGray',
     grayF4 = 'grayF4',
     grayF3 = 'grayF3',
     grayD9 = 'grayD9',

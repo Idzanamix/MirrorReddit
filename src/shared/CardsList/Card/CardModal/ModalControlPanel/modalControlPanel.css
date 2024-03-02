@@ -20,11 +20,12 @@
     transition: color .05s ease-in-out, background-color .05s ease-in-out, border-color .05s ease-in-out, scale .05s ease-in-out;
     outline: none;
     border: .5px solid transparent;
+    color: var(--commentsButton);
 }
 
 .item svg {
     overflow: visible;
-    fill: var(--grayC4);
+    fill: var(--commentsButton);
     transition: fill .05s ease-in-out;
 }
 

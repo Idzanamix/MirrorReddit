@@ -24,6 +24,9 @@ const modalSlice = createSlice({
     name: 'cardModal',
     initialState,
     reducers: {
+        resetModalData() {
+            return initialState
+        },
         setModalData(state, action: PayloadAction<IPostsData>) {
             return {
                 ...state,
@@ -33,6 +36,6 @@ const modalSlice = createSlice({
     }
 });
 
-export const { setModalData } = modalSlice.actions;
+export const { resetModalData, setModalData } = modalSlice.actions;
 
 export default modalSlice.reducer;

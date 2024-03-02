@@ -4,13 +4,15 @@ export function useCustomMatchMedia() {
     const queries = [
         '(max-width: 1023px)',
         '(min-width: 1024px)',
+        '(max-width: 411px)'
     ]
     
-    const [mobile, desktop] = useMatchMedia(queries);
+    const [mobile, desktop, mobile411] = useMatchMedia(queries);
 
     return {
         mobile: mobile,
-        desktop: desktop
+        desktop: desktop,
+        mobile411: mobile411
     }
 }
 

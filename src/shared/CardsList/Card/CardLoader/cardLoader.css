@@ -1,11 +1,17 @@
 .loader {
-    position: absolute;
-    top: calc(50% - 42px);
+    top: calc(150px / 2 - 32px - 7.5px);
     left: calc(50% - 32px);
+    position: absolute;
     z-index: 10000;
 }
 
 .observer {
     position: absolute;
     top: 0;
+}
+
+@media(max-width: 1024px) {
+    .loader {
+        top: calc(150px / 2 - 32px);
+    }
 }

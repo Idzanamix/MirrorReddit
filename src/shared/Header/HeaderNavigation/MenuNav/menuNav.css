@@ -12,17 +12,29 @@
     align-items: center;
 }
 
-.menu:hover {
-    background-color: var(--darkLord);
-}
-
 .nav {
     position: absolute;
     z-index: 10000;
     background-color: var(--background);
-    filter: drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.15));
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
     display: flex;
     flex-direction: column;
     border-radius: 5px;
     padding: 5px;
+}
+
+.isDark .nav {
+    filter: drop-shadow(0px 0px 3px rgba(255, 255, 255, 0.15));
+}
+
+@media (max-width: 1024px) {
+    .menu {
+        margin-right: 10px;
+    }
+}
+
+@media (hover: hover) {
+    .menu:hover {
+        background-color: var(--darkLord);
+    }
 }

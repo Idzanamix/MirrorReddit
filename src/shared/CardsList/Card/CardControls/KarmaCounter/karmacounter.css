@@ -1,10 +1,11 @@
 .karmaCounter {
     display: flex;
     align-items: center;
+    z-index: 100;
 }
 
 .karmaValue {
-    color: var(--white);
+    color: var(--bodyText);
     font-size: 12px;
     line-height: 14px;
     font-weight: 500;
@@ -23,7 +24,7 @@
 
 .up svg,
 .down svg {
-    fill: var(--white);
+    fill: var(--karmaCounterColor);
     transition: fill .1s ease-in-out;
 }
 
@@ -35,6 +36,14 @@
 .down:hover svg {
     fill: var(--redCC);
     transition: fill .1s ease-in-out;
+}
+
+@media (max-width: 1024px) {
+    .karmaCounter {
+        background-color: var(--mobileButton);
+        padding: 6px 10px;
+        border-radius: 20px;
+    }
 }
 
 @media all and (min-width: 1024px) {
@@ -51,10 +60,5 @@
 
     .down {
         padding: 0;
-    }
-
-    .up svg,
-    .down svg {
-        fill: var(--grayD9);
     }
 }

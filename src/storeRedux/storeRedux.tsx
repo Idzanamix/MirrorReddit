@@ -42,6 +42,7 @@ const persistConfig = {
     key: 'noop',
     storage,
     whitelist: [
+        'userBlock',
         'redditToken',
     ]
 };

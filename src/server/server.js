@@ -1,13 +1,14 @@
-import express from 'express';
-import ReactDOM from 'react-dom/server';
-import { App } from '../App';
-import { indexTemplate } from './indexTemplate';
-import compression from 'compression'
 import helmet from 'helmet';
+import { App } from '../App';
+import express from 'express';
+import compression from 'compression';
+import ReactDOM from 'react-dom/server';
+import { indexTemplate } from './indexTemplate';
 
-const PORT = process.env.PORT || 80;
-const IS_DEV = process.env.NODE_ENV !== 'production';
+const PORT = 80;
 const app = express();
+const SITE_URL = process.env.SITE_URL;
+const IS_DEV = process.env.NODE_ENV !== 'production';
 
 if (!IS_DEV) {
     app.use(compression());
@@ -25,5 +26,5 @@ app.get('*', (request, response) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server started on reddinamix.fun:${PORT}`);
+    console.log(`Server started on ${SITE_URL}:${PORT}`);
 });

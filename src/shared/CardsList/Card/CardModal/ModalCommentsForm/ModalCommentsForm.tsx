@@ -33,10 +33,11 @@ interface IModalCommentsFormProps {
     onClose?: () => void;
     cancelBtn?: boolean;
     className?: string;
+    autoFocus?: boolean;
 }
 
 export function ModalCommentsForm(
-    { rootId, authorName, commentId, onClose, cancelBtn, className }: IModalCommentsFormProps) {
+    { rootId, authorName, commentId, onClose, cancelBtn, className, autoFocus }: IModalCommentsFormProps) {
     const commentFormValue = useAppSelector(selectCommentFormValue(commentId));
     const { name } = useAppSelector(selectUserBlock);
     const formRef = useRef<HTMLFormElement>(null);
@@ -77,7 +78,7 @@ export function ModalCommentsForm(
         >
 
             <textarea
-                autoFocus
+                autoFocus={autoFocus ? true : false}
                 className={styles.textarea}
                 value={commentFormValue}
                 onChange={handleChangeForm}
@@ -96,10 +97,10 @@ export function ModalCommentsForm(
                         </Text>}
 
                     {name
-                        ?
-                        ', what are your thoughts?'
-                        :
-                        'Sign in to add a comment'}
+                        ? authorName
+                            ? `, reply to u/${authorName}`
+                            : ', what are your thoughts?'
+                        : 'Sign in to add a comment'}
                 </label>}
 
             <div className={styles.buttonsWrapper}>

@@ -1,33 +1,106 @@
-import React from 'react';
 import styles from './userblock.css';
-import { IconRedditDefault } from '../../../Icons';
-import { EColor, Text } from '../../../../utils/react/Text'
+import { createPortal } from 'react-dom';
+import { UserAvatar } from './UserAvatar';
+import { useCoords } from '../../../../hooks/useCoords';
+import { UserBlockDropdown } from './UserBlockDropdown';
+import React, { useEffect, useRef, useState } from 'react';
+import { useUserData } from '../../../../hooks/useUserData';
+import { useDarkMode } from '../../../../hooks/useDarkMode';
+import { setStopScroll } from '../../../../hooks/useStopScroll';
+import { useModalCloser } from '../../../../hooks/useModalCloser';
+import { useResizeCloser } from '../../../../hooks/useResizeCloser';
+import { useCustomMatchMedia } from '../../../../hooks/useCustomMatchMedia';
+import { useAppSelector, selectIsDarkMode } from '../../../../storeRedux/storeSelectors';
 
-interface IUserBlockProps {
-    loading: boolean;
-    avatarSrc?: string;
-    username?: string;
-}
+export function UserBlock() {
+    const modalRoot = document.getElementById('modal_root');
 
-export function UserBlock({ loading, avatarSrc, username }: IUserBlockProps) {
+    if (!modalRoot) return null;
+
+    const [isOpen, setIsOpen] = useState(false);
+    const { iconImg, name, loading } = useUserData();
+    const darkMode = useAppSelector(selectIsDarkMode);
+    const refButton = useRef<HTMLButtonElement>(null);
+    const listRef = useRef<HTMLUListElement>(null);
+    const [coords] = useCoords(refButton, true);
+    const { mobile411 } = useCustomMatchMedia();
+
+    mobile411 && setStopScroll(isOpen);
+
+    function handleClose() {
+        if (mobile411 && listRef.current) {
+            listRef.current.style.top = '110%';
+            listRef.current.style.visibility = 'hidden';
+            setIsOpen(false);
+            return;
+        }
+
+        setIsOpen(false);
+
+        if (listRef.current) {
+            listRef.current.style.visibility = 'hidden'
+        }
+    }
+
+    function handleOpen() {
+        const listHeigth = listRef.current?.offsetHeight;
+
+        if (mobile411 && listRef.current) {
+            listRef.current.style.top = `calc(100% - ${listHeigth + 'px'})`;
+            listRef.current.style.visibility = 'visible';
+            setIsOpen(true);
+            return;
+        }
+
+        setIsOpen(!isOpen);
+
+        if (listRef.current) {
+            listRef.current.style.visibility = 'visible';
+        }
+    }
+
+    useModalCloser({ onClose: handleClose, ref: listRef, ref2: refButton, noTouch: true });
+    useResizeCloser(handleClose);
+
+    useEffect(() => {
+        useDarkMode(darkMode);
+    }, [darkMode]);
+
     return (
-        <a
-            href="https://www.reddit.com/api/v1/authorize?client_id=_27swn7Uy4Ctovp3-0sQUw&response_type=code&state=random_string&redirect_uri=http://localhost:3000/auth&duration=permanent&scope=read submit identity"
-            className={styles.userBox}>
-            <div className={styles.avatarBox}>
-                {avatarSrc
-                    ? <img src={avatarSrc} alt="User avatar" className={styles.avatarImage} />
-                    : <IconRedditDefault className={styles.avatar} />
-                }
-            </div>
+        <>
+            <button
+                type='button'
+                ref={refButton}
+                className={styles.userBox}
+                onClick={handleOpen}
+            >
+                <UserAvatar
+                    loading={loading}
+                    iconImg={iconImg}
+                    userName={name}
+                />
+            </button>
 
-            <div className={styles.username}>
-                <Text size={16} color={username ? EColor.white : EColor.gray99}>
-                    {loading
-                        ? 'loading...'
-                        : username || 'Log in'}
-                </Text>
-            </div>
-        </a>
+            {mobile411 && coords &&
+                createPortal(
+                    <UserBlockDropdown
+                        isMobileOpen={isOpen}
+                        loading={loading}
+                        iconImg={iconImg}
+                        userName={name}
+                        coords={coords}
+                        ref={listRef}
+                    />, modalRoot)}
+
+            {!mobile411 && isOpen && coords &&
+                createPortal(
+                    <UserBlockDropdown
+                        loading={loading}
+                        iconImg={iconImg}
+                        userName={name}
+                        coords={coords}
+                        ref={listRef}
+                    />, modalRoot)}
+        </>
     );
 }

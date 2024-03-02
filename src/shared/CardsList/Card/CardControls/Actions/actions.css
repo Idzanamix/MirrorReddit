@@ -1,6 +1,7 @@
 .actions {
     display: flex;
     gap: 10px;
+    z-index: 100;
 }
 
 .shareButton {
@@ -8,7 +9,5 @@
     height: 20px;
 }
 
-.saveButton {
-    width: 20px;
-    height: 20px;
-}
+
+

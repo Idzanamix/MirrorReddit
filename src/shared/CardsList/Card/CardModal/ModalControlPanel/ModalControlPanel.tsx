@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './modalControlPanel.css'
-import { EColor } from '../../../../../utils/react/Text';
 import { GenericList } from '../../../../../utils/react/GenericList';
 import { generateId } from '../../../../../utils/ts/generateRandomIndex';
 import { shortFormatNumber } from '../../../../../utils/ts/shortFormatNumber';
@@ -43,7 +42,6 @@ export function ModalControlPanel({ props }: IModalControlPanel) {
                 className={styles.item}
                 size={14}
                 mobileSize={12}
-                color={EColor.grayC4}
             />
         </div>
     )

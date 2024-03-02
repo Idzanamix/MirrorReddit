@@ -13,7 +13,7 @@ export const getPostsAsyncThunk: any = (postType: string): ThunkActionType => as
         const { data: { data: { after, children } } } =
             await axios.get(`https://www.reddit.com/${postType || type}.json?sr_detail=true`, {
                 params: {
-                    limit: 25,
+                    limit: 5,
                     after: afterList
                 }
             });

@@ -10,6 +10,8 @@ export const selectPostsBlock = (state: rootStateType) => state.postsBlock;
 
 export const selectPostsData = (state: rootStateType) => state.postsBlock.postsData;
 
+export const selectPostsLoading = (state:rootStateType) => state.postsBlock.loading;
+
 export const selectCardModalData = (state: rootStateType) => state.cardModal.modalData;
 
 export const selectComments = (state: rootStateType) => state.commentsList;
@@ -22,3 +24,6 @@ export const selectCommentFormValue = (commentId: string) => (state: rootStateTy
 
 export const selectFormIsOpen = (commentId: string) => (state: rootStateType) => state.commentsForm
     .filter((comment: ITextCommentState) => comment.commentId === commentId)[0]?.formIsOpen;
+
+export const selectIsDarkMode = (state: rootStateType) => state.userBlock.darkMode;
+

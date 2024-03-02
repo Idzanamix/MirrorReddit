@@ -4,11 +4,11 @@
     "description": "",
     "main": "webpack.config.js",
     "scripts": {
+        "comp": "generate-react component",
         "build:dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
         "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
-        "dev": "cross-env NODE_ENV=development CLIENT_ID=_27swn7Uy4Ctovp3-0sQUw node ./bin/dev.js",
-        "comp": "generate-react component",
-        "start": "node ./dist/server/server.js"
+        "dev": "cross-env NODE_ENV=development CLIENT_ID=_27swn7Uy4Ctovp3-0sQUw SECRET=VEAVqqPu7VVpRhOmQpqJmaQjl3Zrig SITE_URL=http://localhost node ./bin/dev.js",
+        "start": "cross-env CLIENT_ID=YT_oIZmgpNGmdVl7mObtyg SECRET=FbaMr-17Nv931mFopg3TATD6cR2Wrg SITE_URL=http://reddinamix.fun node ./dist/server/server.js"
     },
     "author": "idzanamix",
     "license": "ISC",
@@ -23,7 +23,6 @@
         "helmet": "^7.1.0",
         "html-to-text": "^9.0.5",
         "nodemon": "^3.0.1",
-        "pm2": "^5.3.1",
         "react": "^17.0.0",
         "react-dom": "^17.0.0",
         "react-player": "^2.13.0",
