@@ -45,7 +45,7 @@ module.exports = {
             'react-dom': IS_DEV ? '@hot-loader/react-dom' : 'react-dom'
         }
     },
-    mode: NODE_ENV ? NODE_ENV : 'development',
+    mode: NODE_ENV ?  'development' : 'production',
     entry: getEntry(),
     output: {
         path: path.resolve(__dirname, '../dist/client'),
