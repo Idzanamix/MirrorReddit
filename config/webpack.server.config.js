@@ -5,16 +5,6 @@ const GLOBAL_CSS_REGEXP = /(\overlayscrollbars|\.global)\.css$/;
 const { DefinePlugin } = require('webpack');
 
 module.exports = {
-    apps: [{
-        name: "reddinamix",
-        script: "./dist/server/server.js",
-        env_production: {
-            NODE_ENV: "production",
-            CLIENT_ID: "YT_oIZmgpNGmdVl7mObtyg",
-            SECRET: "FbaMr-17Nv931mFopg3TATD6cR2Wrg",
-            SITE_URL: "http://reddinamix.fun"
-        }
-    }],
     target: 'node',
     mode: NODE_ENV ? NODE_ENV : 'development',
     entry: path.resolve(__dirname, '../src/server/server.js'),

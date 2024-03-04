@@ -27,4 +27,5 @@ app.get('*', (request, response) => {
 
 app.listen(PORT, () => {
     console.log(`Server started on ${SITE_URL}:${PORT}`);
+    console.log('process.env.CLIENT_ID', process.env.CLIENT_ID);
 });
