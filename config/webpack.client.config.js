@@ -14,8 +14,8 @@ const DEV_PLUGINS = [
     new MiniCssExtractPlugin({ filename: 'style.css' })
 ];
 const COMMON_PLUGINS = [
-    new DefinePlugin({ 
-        'process.env.CLIENT_ID': `'${process.env.CLIENT_ID}'`, 
+    new DefinePlugin({
+        'process.env.CLIENT_ID': `'${process.env.CLIENT_ID}'`,
         'process.env.SECRET': `'${process.env.SECRET}'`,
         'process.env.SITE_URL': `'${process.env.SITE_URL}'`
     },),
@@ -37,6 +37,16 @@ function getEntry() {
 }
 
 module.exports = {
+    apps: [{
+        name: "reddinamix",
+        script: "./dist/server/server.js",
+        env_production: {
+            NODE_ENV: "production",
+            CLIENT_ID: "YT_oIZmgpNGmdVl7mObtyg",
+            SECRET: "FbaMr-17Nv931mFopg3TATD6cR2Wrg",
+            SITE_URL: "http://reddinamix.fun"
+        }
+    }],
     resolve: {
         extensions: [
             '.js', '.jsx', '.ts', '.tsx', '.json',
