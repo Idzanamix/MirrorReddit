@@ -41,7 +41,9 @@ module.exports = {
         extensions: [
             '.js', '.jsx', '.ts', '.tsx', '.json',
         ],
-        alias: 'react-dom'
+        alias: {
+            'react-dom': 'react-dom'
+        }
     },
     mode: NODE_ENV ? NODE_ENV : 'development',
     entry: getEntry(),
