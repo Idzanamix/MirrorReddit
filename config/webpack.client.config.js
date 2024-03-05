@@ -1,4 +1,5 @@
 const path = require('path');
+const TerserPlugin = require("terser-webpack-plugin");
 const { HotModuleReplacementPlugin, DefinePlugin } = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -19,7 +20,8 @@ const COMMON_PLUGINS = [
         'process.env.SECRET': `'${process.env.SECRET}'`,
         'process.env.SITE_URL': `'${process.env.SITE_URL}'`
     },),
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin(),
+    new TerserPlugin()
 ];
 
 function setupDevtool() {
@@ -90,6 +92,7 @@ module.exports = {
     optimization: {
         minimizer: [
             new CssMinimizerPlugin(),
+            new TerserPlugin()
         ],
         minimize: true,
     },
