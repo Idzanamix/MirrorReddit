@@ -23114,7 +23114,7 @@ const UserBlockDropdown = (0,react.forwardRef)(({ loading, iconImg, userName, co
                     react.createElement(Iconlogin, null),
                     react.createElement(Text, { className: userBlockDropdown.text, color: EColor.white, size: 12 }, "Log Out"))
                 :
-                    react.createElement("a", { href: `https://www.reddit.com/api/v1/authorize?client_id=${'YT_oIZmgpNGmdVl7mObtyg'}&response_type=code&state=random_string&redirect_uri=${'http://reddinamix.fun'}:80/auth&duration=permanent&scope=read submit identity`, className: userBlockDropdown.button, type: 'button' },
+                    react.createElement("a", { href: `https://www.reddit.com/api/v1/authorize?client_id=${'YT_oIZmgpNGmdVl7mObtyg'}&response_type=code&state=random_string&redirect_uri=${'http://reddinamix.fun'}/auth&duration=permanent&scope=read submit identity`, className: userBlockDropdown.button, type: 'button' },
                         react.createElement(Iconlogin, null),
                         react.createElement(Text, { className: userBlockDropdown.text, color: EColor.white, size: 12 }, "Log In / Sign Up"))),
             react.createElement("li", { className: userBlockDropdown.item, style: { padding: '15px 20px' } },
@@ -26092,7 +26092,7 @@ const saveTokenAsyncThunk = () => (dispatch, getState) => saveTokenAsyncThunk_aw
     if (!params.code || !'YT_oIZmgpNGmdVl7mObtyg' || !'FbaMr-17Nv931mFopg3TATD6cR2Wrg')
         return;
     try {
-        const { data } = yield lib_axios.post('https://www.reddit.com/api/v1/access_token', `grant_type=authorization_code&code=${params.code}&redirect_uri=${'http://reddinamix.fun'}:80/auth`, {
+        const { data } = yield lib_axios.post('https://www.reddit.com/api/v1/access_token', `grant_type=authorization_code&code=${params.code}&redirect_uri=${'http://reddinamix.fun'}/auth`, {
             auth: {
                 username: 'YT_oIZmgpNGmdVl7mObtyg',
                 password: 'FbaMr-17Nv931mFopg3TATD6cR2Wrg'

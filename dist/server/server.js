@@ -1191,7 +1191,7 @@ const UserBlockDropdown = (0,external_react_namespaceObject.forwardRef)(({ loadi
                     external_react_default().createElement(Iconlogin, null),
                     external_react_default().createElement(Text, { className: userBlockDropdown.text, color: EColor.white, size: 12 }, "Log Out"))
                 :
-                    external_react_default().createElement("a", { href: `https://www.reddit.com/api/v1/authorize?client_id=${'YT_oIZmgpNGmdVl7mObtyg'}&response_type=code&state=random_string&redirect_uri=${'http://reddinamix.fun'}:80/auth&duration=permanent&scope=read submit identity`, className: userBlockDropdown.button, type: 'button' },
+                    external_react_default().createElement("a", { href: `https://www.reddit.com/api/v1/authorize?client_id=${'YT_oIZmgpNGmdVl7mObtyg'}&response_type=code&state=random_string&redirect_uri=${'http://reddinamix.fun'}/auth&duration=permanent&scope=read submit identity`, className: userBlockDropdown.button, type: 'button' },
                         external_react_default().createElement(Iconlogin, null),
                         external_react_default().createElement(Text, { className: userBlockDropdown.text, color: EColor.white, size: 12 }, "Log In / Sign Up"))),
             external_react_default().createElement("li", { className: userBlockDropdown.item, style: { padding: '15px 20px' } },
@@ -1235,7 +1235,7 @@ const saveTokenAsyncThunk = () => (dispatch, getState) => __awaiter(void 0, void
     if (!params.code || !'YT_oIZmgpNGmdVl7mObtyg' || !'FbaMr-17Nv931mFopg3TATD6cR2Wrg')
         return;
     try {
-        const { data } = yield external_axios_default().post('https://www.reddit.com/api/v1/access_token', `grant_type=authorization_code&code=${params.code}&redirect_uri=${'http://reddinamix.fun'}:80/auth`, {
+        const { data } = yield external_axios_default().post('https://www.reddit.com/api/v1/access_token', `grant_type=authorization_code&code=${params.code}&redirect_uri=${'http://reddinamix.fun'}/auth`, {
             auth: {
                 username: 'YT_oIZmgpNGmdVl7mObtyg',
                 password: 'FbaMr-17Nv931mFopg3TATD6cR2Wrg'
@@ -3697,9 +3697,9 @@ app.get('*', (request, response) => {
 });
 app.listen(PORT, () => {
     console.log(`Server started on ${SITE_URL}:${PORT}`);
-    console.log('process.env.CLIENT_ID', 'YT_oIZmgpNGmdVl7mObtyg');
-    console.log('prod:', "production");
-    console.log('secret:', 'FbaMr-17Nv931mFopg3TATD6cR2Wrg');
+    console.log('CLIENT_ID', 'YT_oIZmgpNGmdVl7mObtyg');
+    console.log('NODE_ENV:', "production");
+    console.log('SECRET:', 'FbaMr-17Nv931mFopg3TATD6cR2Wrg');
 });
 
 })();
