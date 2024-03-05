@@ -6,8 +6,8 @@
     "scripts": {
         "comp": "generate-react component",
         "build:dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
-        "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
-        "dev": "cross-env NODE_ENV=production CLIENT_ID=YT_oIZmgpNGmdVl7mObtyg SECRET=FbaMr-17Nv931mFopg3TATD6cR2Wrg SITE_URL=http://reddinamix.fun node ./dist/server/server.js",
+        "build": "cross-env NODE_ENV=production CLIENT_ID=YT_oIZmgpNGmdVl7mObtyg SECRET=FbaMr-17Nv931mFopg3TATD6cR2Wrg SITE_URL=http://reddinamix.fun webpack --config webpack.config.js",
+        "dev": "cross-env NODE_ENV=development CLIENT_ID=YT__27swn7Uy4Ctovp3-0sQUw SECRET=VEAVqqPu7VVpRhOmQpqJmaQjl3Zrig SITE_URL=http://localhost node ./dist/server/server.js",
         "start": "cross-env NODE_ENV=production CLIENT_ID=YT_oIZmgpNGmdVl7mObtyg SECRET=FbaMr-17Nv931mFopg3TATD6cR2Wrg SITE_URL=http://reddinamix.fun node ./dist/server/server.js"
     },
     "author": "idzanamix",
