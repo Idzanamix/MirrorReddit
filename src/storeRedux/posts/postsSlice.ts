@@ -54,19 +54,38 @@ const postsSlice = createSlice({
             }
         },
         setPostsData(state, action: PayloadAction<IPostsDataAction>) {
-            const addIsLast = state.postsData.map((post: IPostsData) => {
-                return {
-                    ...post,
-                    isLast: false
-                }
-            });
-            const scrolledPosts = addIsLast.concat(action.payload.postsData);
+            const scrolledPosts = state.postsData.concat(action.payload.postsData);
+
+            const removeDuplicates = scrolledPosts.reduce((uniq: any, item) => {
+                return !uniq.some((uniqItem: IPostsData) => item.postId === uniqItem.postId)
+                    ? [...uniq, item]
+                    : uniq;
+            }, []);
+
+            const switchedIsLastPostsData =
+                removeDuplicates.map((post: IPostsData, i: number, arr: any) => {
+                    if (arr.length - 1 === i) {
+                        return {
+                            ...post,
+                            isLast: true
+                        }
+                    } else {
+                        return {
+                            ...post,
+                            isLast: false
+                        }
+                    }
+                });
 
             return {
                 ...state,
-                postsData: scrolledPosts,
+                postsData: switchedIsLastPostsData,
                 afterList: action.payload.after,
-                count: state.count === 2 ? 0 : state.count + 1,
+                count: state.count > 1
+                    ? (scrolledPosts.length - removeDuplicates.length > 2)
+                        ? state.count + 1
+                        : 0
+                    : state.count + 1,
                 type: action.payload.postType || state.type,
                 loading: false
             }

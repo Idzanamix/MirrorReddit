@@ -1,4 +1,4 @@
-export function postConverter(data: any, isLast?: boolean) {
+export function postConverter(data: any) {
     return {
         postId: data.id,
         postSubreddit: data.subreddit,
@@ -13,6 +13,6 @@ export function postConverter(data: any, isLast?: boolean) {
         postHighQualityVideoUrl: data.secure_media?.reddit_video?.hls_url,
         postVideoUrl: data.secure_media?.reddit_video?.scrubber_media_url,
         postText: data.selftext_html,
-        isLast: isLast || false,
+        isLast: false,
     }
 }

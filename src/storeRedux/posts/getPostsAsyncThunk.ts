@@ -13,7 +13,7 @@ export const getPostsAsyncThunk: any = (postType: string): ThunkActionType => as
         const { data: { data: { after, children } } } =
             await axios.get(`https://www.reddit.com/${postType || type}.json?sr_detail=true`, {
                 params: {
-                    limit: 5,
+                    limit: 6,
                     after: afterList
                 }
             });
@@ -23,10 +23,7 @@ export const getPostsAsyncThunk: any = (postType: string): ThunkActionType => as
                 postType: postType,
                 after: after,
                 postsData: children.map(({ data }: any) => {
-                    const lastItemId = children[children.length - 1].data.id;
-                    const isLast = lastItemId === data.id ? true : false
-
-                    return postConverter(data, isLast);
+                    return postConverter(data);
                 })
             })
         );
