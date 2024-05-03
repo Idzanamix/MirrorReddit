@@ -107,7 +107,7 @@ export const UserBlockDropdown = forwardRef((
 
                     :
                     <a
-                        href={`https://www.reddit.com/api/v1/authorize?client_id=${process.env.CLIENT_ID}&response_type=code&state=random_string&redirect_uri=${process.env.SITE_URL}/auth&duration=permanent&scope=read submit identity`}
+                        href={`https://www.reddit.com/api/v1/authorize?client_id=${process.env.CLIENT_ID}&response_type=code&state=random_string&redirect_uri=${process.env.SITE_URL}:${process.env.PORT}/auth&duration=permanent&scope=read submit identity`}
                         className={styles.button}
                         type='button'
                     >

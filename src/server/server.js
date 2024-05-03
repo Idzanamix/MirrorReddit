@@ -5,7 +5,7 @@ import compression from 'compression';
 import ReactDOM from 'react-dom/server';
 import { indexTemplate } from './indexTemplate';
 
-const PORT = 80;
+const PORT = process.env.PORT || 5000;
 const app = express();
 const SITE_URL = process.env.SITE_URL;
 const IS_DEV = process.env.NODE_ENV !== 'production';
@@ -26,7 +26,7 @@ app.get('*', (request, response) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server started on ${SITE_URL}`);
+    console.log(`Server started on ${SITE_URL}:${PORT}`);
     console.log('CLIENT_ID', process.env.CLIENT_ID);
     console.log('NODE_ENV:', process.env.NODE_ENV);
     console.log('SECRET:', process.env.SECRET);

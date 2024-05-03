@@ -1,4 +1,4 @@
-import {assoc} from './assoc';
+import { assoc } from './assoc';
 
 export const generateRandomString = () => Math.random().toString(36).substring(2, 15);
 
