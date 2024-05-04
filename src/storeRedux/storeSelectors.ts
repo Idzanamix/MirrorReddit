@@ -4,13 +4,13 @@ import { TypedUseSelectorHook, useSelector } from "react-redux";
 
 export const useAppSelector: TypedUseSelectorHook<rootStateType> = useSelector;
 
-export const selectUserBlock = (state: rootStateType) => state.userBlock;
+export const selectUserBlock = ({ userBlock }: rootStateType) => userBlock;
 
 export const selectPostsBlock = (state: rootStateType) => state.postsBlock;
 
 export const selectPostsData = (state: rootStateType) => state.postsBlock.postsData;
 
-export const selectPostsLoading = (state:rootStateType) => state.postsBlock.loading;
+export const selectPostsLoading = (state: rootStateType) => state.postsBlock.loading;
 
 export const selectCardModalData = (state: rootStateType) => state.cardModal.modalData;
 
@@ -26,4 +26,7 @@ export const selectFormIsOpen = (commentId: string) => (state: rootStateType) =>
     .filter((comment: ITextCommentState) => comment.commentId === commentId)[0]?.formIsOpen;
 
 export const selectIsDarkMode = (state: rootStateType) => state.userBlock.darkMode;
+
+export const selectToken = ({ redditToken }: rootStateType) => redditToken;
+
 

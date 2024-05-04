@@ -1,29 +1,33 @@
 import styles from './userblock.css';
 import { createPortal } from 'react-dom';
 import { UserAvatar } from './UserAvatar';
+import { useDispatch } from 'react-redux';
 import { useCoords } from '../../../../hooks/useCoords';
 import { UserBlockDropdown } from './UserBlockDropdown';
 import React, { useEffect, useRef, useState } from 'react';
-import { useUserData } from '../../../../hooks/useUserData';
 import { useDarkMode } from '../../../../hooks/useDarkMode';
 import { setStopScroll } from '../../../../hooks/useStopScroll';
 import { useModalCloser } from '../../../../hooks/useModalCloser';
 import { useResizeCloser } from '../../../../hooks/useResizeCloser';
 import { useCustomMatchMedia } from '../../../../hooks/useCustomMatchMedia';
-import { useAppSelector, selectIsDarkMode } from '../../../../storeRedux/storeSelectors';
+import { saveTokenAsyncThunk } from '../../../../storeRedux/token/saveTokenAsyncThunk';
+import { userReguestAsyncThunk } from '../../../../storeRedux/user/userReguestAsyncThunk';
+import { useAppSelector, selectIsDarkMode, selectToken, selectUserBlock } from '../../../../storeRedux/storeSelectors';
 
 export function UserBlock() {
     const modalRoot = document.getElementById('modal_root');
 
     if (!modalRoot) return null;
 
+    const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState(false);
-    const { iconImg, name, loading } = useUserData();
-    const darkMode = useAppSelector(selectIsDarkMode);
     const refButton = useRef<HTMLButtonElement>(null);
     const listRef = useRef<HTMLUListElement>(null);
     const [coords] = useCoords(refButton, true);
     const { mobile411 } = useCustomMatchMedia();
+    const redditToken = useAppSelector(selectToken);
+    const darkMode = useAppSelector(selectIsDarkMode);
+    const { iconImg, name, loading } = useAppSelector(selectUserBlock);
 
     mobile411 && setStopScroll(isOpen);
 
@@ -61,6 +65,11 @@ export function UserBlock() {
 
     useModalCloser({ onClose: handleClose, ref: listRef, ref2: refButton, noTouch: true });
     useResizeCloser(handleClose);
+
+    useEffect(() => {
+        dispatch(saveTokenAsyncThunk());
+        dispatch(userReguestAsyncThunk());
+    }, [redditToken]);
 
     useEffect(() => {
         useDarkMode(darkMode);

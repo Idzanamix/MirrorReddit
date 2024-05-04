@@ -16,7 +16,7 @@ export function useMoreComments({ commentsData, postId }: IUseMoreCommentsProps)
         let isUnmount = false;
 
         const timer = setTimeout(() => {
-            axios.get(`http://oauth.reddit.com/api/morechildren?link_id=t3_${postId}&children=${commentsData}&api_type=json`)
+            axios.get(`https://oauth.reddit.com/api/morechildren?link_id=t3_${postId}&children=${commentsData}&api_type=json`)
                 .then((response) => {
                     if (!isUnmount && response.data.json.data) {
                         const comments = response.data.json.data.things;

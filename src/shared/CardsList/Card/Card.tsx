@@ -15,6 +15,7 @@ import { setImageIsOpen } from '../../../storeRedux/posts/postIsOpen';
 import { useCustomMatchMedia } from '../../../hooks/useCustomMatchMedia';
 import React, { HTMLAttributes, LegacyRef, forwardRef, memo, useEffect } from 'react';
 import { selectPostIsOpen, selectPostsBlock, useAppSelector } from '../../../storeRedux/storeSelectors';
+import { useResizeCloser } from '../../../hooks/useResizeCloser';
 
 interface ICardProps extends HTMLAttributes<HTMLDListElement> {
     cardItemData: IPostsData;
@@ -29,6 +30,8 @@ export const Card = memo(forwardRef(
         const { loading, count } = useAppSelector(selectPostsBlock);
         const [refEndingOfList] = useScrollPostsData();
         const { mobile } = useCustomMatchMedia();
+
+        useResizeCloser(() => dispatch(setImageIsOpen({ isImageOpen: false, postId: cardItemData.postId })));
 
         const handleClick = () =>
             dispatch(setImageIsOpen({ isImageOpen: !isImageOpen, postId: cardItemData.postId }));
@@ -62,8 +65,8 @@ export const Card = memo(forwardRef(
                             onLoad={onLoading}
                             ref={ref}
                         >
-                            <Link to={`${postSubreddit}/comments/${postId}`} className={styles.link}/>
-                            
+                            <Link to={`${postSubreddit}/comments/${postId}`} className={styles.link} />
+
                             <div className={styles.wrapper}>
                                 {mobile &&
                                     <CardAnchor {...{ anchorName, createdTime }} />}
@@ -85,7 +88,7 @@ export const Card = memo(forwardRef(
                                         className={styles.previewIsOpen}
                                         props={cardItemData}
                                         onLoading={onLoading}
-                                        videoHeight={mobile ? '70vh' : '550px'}
+                                        videoHeight={'70vh'}
                                     />}
                             </div>
                             <CardControls />

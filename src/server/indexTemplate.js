@@ -4,7 +4,8 @@ export const indexTemplate = (content) =>
     <html lang="en">
         <head>
             <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">                                  
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+                <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">                                  
                     <title>Reddit Idzanamix</title>
                     <base href="/">
                     <link href="static/style.css" rel="stylesheet" />
