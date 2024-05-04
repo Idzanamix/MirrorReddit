@@ -1,8 +1,8 @@
 
 import axios from "axios";
-import { resetToken, setToken } from "./tokenSlice";
-import { resetUserData } from "../user/userSlise";
 import { ThunkActionType } from "../storeRedux";
+import { resetUserData } from "../user/userSlise";
+import { resetToken, setToken } from "./tokenSlice";
 
 
 interface IQueryCode extends URLSearchParams {
