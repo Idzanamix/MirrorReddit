@@ -9,13 +9,13 @@ import { CardListFooter } from '../CardListFooter';
 import { CardTextContent } from './CardTextContent';
 import { CardVisual } from './CardVisual/CardVisual';
 import { cardContext } from '../../../context/CardContext';
+import { useResizeCloser } from '../../../hooks/useResizeCloser';
 import { useScrollPostsData } from '../../../hooks/usePostsData';
 import { IPostsData } from '../../../storeRedux/posts/postsSlice';
 import { setImageIsOpen } from '../../../storeRedux/posts/postIsOpen';
 import { useCustomMatchMedia } from '../../../hooks/useCustomMatchMedia';
 import React, { HTMLAttributes, LegacyRef, forwardRef, memo, useEffect } from 'react';
 import { selectPostIsOpen, selectPostsBlock, useAppSelector } from '../../../storeRedux/storeSelectors';
-import { useResizeCloser } from '../../../hooks/useResizeCloser';
 
 interface ICardProps extends HTMLAttributes<HTMLDListElement> {
     cardItemData: IPostsData;

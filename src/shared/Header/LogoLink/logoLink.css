@@ -26,7 +26,7 @@
 
 .namix {
     overflow: visible;
-    height: 28px;
+    height: 27px;
     display: flex;
     align-items: center;
 }
@@ -42,7 +42,7 @@
     }
 
     .namix {
-        height: 19px;
+        height: 18px;
     }
 
     .logo {

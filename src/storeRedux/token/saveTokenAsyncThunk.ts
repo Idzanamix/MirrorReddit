@@ -1,7 +1,7 @@
 
 import axios from "axios";
 import { resetToken, setToken } from "./tokenSlice";
-import { resetUserData  } from "../user/userSlise";
+import { resetUserData } from "../user/userSlise";
 import { ThunkActionType } from "../storeRedux";
 
 
@@ -32,7 +32,7 @@ export const saveTokenAsyncThunk: any = (): ThunkActionType => async (dispatch, 
 
     try {
         const { data } = await axios.post('https://www.reddit.com/api/v1/access_token',
-            `grant_type=authorization_code&code=${params.code}&redirect_uri=${process.env.SITE_URL}:${process.env.PORT}/auth`,
+            `grant_type=authorization_code&code=${params.code}&redirect_uri=${process.env.SITE_URL}${process.env.PORT ? ':' + process.env.PORT : ''}/auth`,
             {
                 auth: {
                     username: process.env.CLIENT_ID,
