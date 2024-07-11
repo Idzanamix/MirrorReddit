@@ -11,8 +11,20 @@ import { CardModal } from './shared/CardsList/Card/CardModal';
 import { PostsSection } from './shared/PostsSection/PostsSection';
 import { CardListContextProvider } from './context/CardListContext';
 import { MountedBrowserRouter, ReduxProvider } from './storeRedux/storeRedux';
+import axios from "axios";
 
 function AppComponent() {
+
+// null, undefined, boolean, number, string, object, symbol
+
+
+axios.get('https://api.github.com/graphql', {
+    headers: {
+        Authorization: `bearer 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`
+    }
+}).then(res => {
+    console.log(res);
+})
     return (
         <MountedBrowserRouter>
             <ReduxProvider>
